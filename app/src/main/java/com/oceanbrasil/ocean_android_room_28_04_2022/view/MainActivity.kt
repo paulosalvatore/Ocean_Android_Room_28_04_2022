@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Criar alguns pokémon
+        // Criar alguns pokémon sempre que a aplicação abrir
         pokemonViewModel.create(PokemonEntity(null, "Charmander", "https://image"))
         pokemonViewModel.create(PokemonEntity(null, "Bulbasaur", "https://image"))
         pokemonViewModel.create(PokemonEntity(null, "Squirtle", "https://image"))
