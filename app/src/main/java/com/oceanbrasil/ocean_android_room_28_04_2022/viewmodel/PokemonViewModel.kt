@@ -25,4 +25,10 @@ class PokemonViewModel(application: Application) : AndroidViewModel(application)
             pokemonDao.create(pokemon)
         }.start()
     }
+
+    fun deleteAll() {
+        Thread {
+            pokemonDao.deleteAll()
+        }.start()
+    }
 }

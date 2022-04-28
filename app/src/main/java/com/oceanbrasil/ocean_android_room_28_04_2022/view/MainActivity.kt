@@ -2,6 +2,7 @@ package com.oceanbrasil.ocean_android_room_28_04_2022.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.oceanbrasil.ocean_android_room_28_04_2022.R
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         val pokemonViewModel = ViewModelProvider(this).get(PokemonViewModel::class.java)
 
+        // Visualizar pokémon adicionados
         val tvPokemon = findViewById<TextView>(R.id.tvPokemon)
 
         pokemonViewModel.pokemon.observe(this) {
@@ -25,8 +27,16 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        // Criar alguns pokémon
         pokemonViewModel.create(PokemonEntity(null, "Charmander", "https://image"))
         pokemonViewModel.create(PokemonEntity(null, "Bulbasaur", "https://image"))
         pokemonViewModel.create(PokemonEntity(null, "Squirtle", "https://image"))
+
+        // Botão para limpar DB
+        val btLimparDB = findViewById<Button>(R.id.btLimparDB)
+
+        btLimparDB.setOnClickListener {
+            pokemonViewModel.deleteAll()
+        }
     }
 }
