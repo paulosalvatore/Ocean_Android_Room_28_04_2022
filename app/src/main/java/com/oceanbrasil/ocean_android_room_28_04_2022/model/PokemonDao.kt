@@ -1,9 +1,7 @@
 package com.oceanbrasil.ocean_android_room_28_04_2022.model
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface PokemonDao {
@@ -12,4 +10,13 @@ interface PokemonDao {
 
     @Insert
     fun create(pokemon: PokemonEntity)
+
+    @Update
+    fun update(pokemon: PokemonEntity)
+
+    @Delete
+    fun delete(pokemon: PokemonEntity)
+
+    @Query("DELETE FROM PokemonEntity")
+    fun deleteAll()
 }
